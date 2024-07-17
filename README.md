@@ -33,8 +33,9 @@
         exposure to online threats.
 
 ### Enhanced Encryption
-        To improve security, future versions will implement stronger encryption techniques. This ensures 
-        hat even if the database is compromised, passwords remain secure and not easily recognizable.
+        To improve security, future versions will implement stronger encryption techniques. This 
+        ensures hat even if the database is compromised, passwords remain secure and not easily 
+        recognizable.
 
 ---
 
@@ -75,6 +76,6 @@
         reduzir a exposição a ameaças online.
 
 ### Criptografia Reforçada
-        Para aumentar a segurança, futuras versões implementarão técnicas de criptografia mais robustas. 
-        Isso garante que mesmo se o banco de dados for comprometido, as senhas permaneçam seguras e não 
-        sejam facilmente reconhecíveis.
+        Para aumentar a segurança, futuras versões implementarão técnicas de criptografia mais 
+        robustas. Isso garante que mesmo se o banco de dados for comprometido, as senhas permaneçam 
+        seguras e não sejam facilmente reconhecíveis.
