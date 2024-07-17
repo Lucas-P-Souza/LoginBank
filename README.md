@@ -22,7 +22,7 @@
 
 ## Descrição 
 
-        Esse programa tem a intenção de ser um simples banco de senhas que possúi um certo
+        Esse programa tem a intenção de ser um simples banco de senhas que possui um certo
         nível de criptografia. Seu objetivo é guardar logins de várias contas.
         
 
