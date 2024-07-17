@@ -172,7 +172,7 @@ def decripter_cezar(encrypted_password):
     return decrypted_password
 
 #function to encrypt the password using the vinegere cipher
-def encrypted_vinegere(password, key):
+def encrypted_vinegere(password, key, app):
     
     #declare the global variables
     global vet_vinegere

@@ -42,8 +42,15 @@ class InsertFrame(tk.Frame):
         login = self.entry_login.get()
         password = self.entry_password.get()
         
+        #here is where you can choose which encryption method you want to use
+        #you can choose between cezar cipher and vinegere cipher to encrypt the password
+        #to use the cezar cipher, uncomment the line 51 and comment the line 53
+        #to use the vinegere cipher, uncomment the line 53 and comment the line 51
+        
         #here we encrypt the password using the cezar cipher
-        encrypted_password = lb.encrepter_cezar(password, login, site)
+        #encrypted_password = lb.encrepter_cezar(password, login, site)
+        #here we encrypt the password using the vinegere cipher
+        encrypted_password = lb.encrypted_vinegere(password, login, site)
         
         #here we insert the credentials into the database
         db.insert_credential(site, login, encrypted_password)
