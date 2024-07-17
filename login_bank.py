@@ -1,74 +1,74 @@
-import math
 import os
 
-def is_printable(char):
-    return ord(char) >= 32 and ord(char) <= 126
+#vector with all the characters that can be used in the cezar cipher
+vet_cezar = (
+    # numbers
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    #alphabet lowercase 
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
+    'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
+    'u', 'v', 'w', 'x', 'y', 'z',
+    #alphabet uppercase
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
+    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
+    'U', 'V', 'W', 'X', 'Y', 'Z',
+    #special characters
+    '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', 
+    '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', 
+    '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', 
+    '}', '~',
+)
 
-def is_not_printable_up(char):
-    id = ord(char)
-    if id > 126:
-        #i coded this way to make it easier to understand
-        #if you want to make it more efficient, you can just do -> return id - 94
-        id -= 126
-        id += 32
-    return id
+#mapping 
+char_to_index = {char: idx for idx, char in enumerate(vet_cezar)}
+index_to_char = {idx: char for idx, char in enumerate(vet_cezar)}
 
-def is_not_printable_down(char):
-    id = ord(char)
-    if id < 32:
-        #i coded this way to make it easier to understand
-        #if you want to make it more efficient, you can just do -> return id - 94
-        id += 126
-    return id
-
-def encrepter_cezar():
+#function to encrypt the password using the cezar cipher
+def encrepter_cezar(password, login, app):
     
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_filename = os.path.join(script_dir, 'output.txt')
+    #initialize the encrypted password
+    encrypted_password = ''
 
-    password = 'abc123.'
-    ceazer_key_password = ''
-
+    #using the length of the password as the key
     ceazer_key = len(password)
 
+    #encrypt the password using the key
     for char in password:
-        char = chr(ord(char) + ceazer_key)
-        if is_printable(char):
-            ceazer_key_password += char
+        if char in char_to_index:
+            idx = char_to_index[char]
+            new_idx = (idx + ceazer_key) % len(vet_cezar)
+            encrypted_password += index_to_char[new_idx]
+        #if the character is not in the vector, it keeps the original character
         else:
-            ceazer_key_password += chr(is_not_printable_up(char))
+            encrypted_password += char  
 
-    new_password = ceazer_key_password
+    #return the encrypted password
+    return encrypted_password
 
-    with open(output_filename, 'w') as out_file:
-        out_file.write(password + "\n")
-        out_file.write(new_password + "\n")
-
-def decripter_cezar():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_filename = os.path.join(script_dir, 'output.txt')
-
-    with open(output_filename, 'r') as out_file:
-        password = out_file.readline().strip()
-        new_password = out_file.readline().strip()
-
-    ceazer_key_password = ''
-
-    ceazer_key = len(password)
-
-    for char in new_password:
-        char = chr(ord(char) - ceazer_key)
-        if is_printable(char):
-            ceazer_key_password += char
-        else:
-            ceazer_key_password += chr(is_not_printable_down(char))
-
-    print(ceazer_key_password)
+#function to decrypt the password using the cezar cipher
+def decripter_cezar(encrypted_password):
     
-encrepter_cezar()
-decripter_cezar()
+    #initialize the decrypted password
+    decrypted_password = ''
 
-'''
-The code is not perfect, but it is a good start. You can improve it by adding more security layers, like using a better encryption algorithm, using a key to encrypt and decrypt, etc.
-I hope this helps you. If you have any questions, please let me know.
-'''
+    #using the length of the encrypted password as the key
+    ceazer_key = len(encrypted_password)
+
+    #decrypt the password using the key
+    for char in encrypted_password:
+        if char in char_to_index:
+            idx = char_to_index[char]
+            new_idx = (idx - ceazer_key) % len(vet_cezar)
+            decrypted_password += index_to_char[new_idx]
+        #if the character is not in the vector, it keeps the original character
+        else:
+            decrypted_password += char
+
+    #return the decrypted password
+    return decrypted_password
+
+#function to check if the password is correct
+#this password is used to decrypt the encrypted password by the application
+def is_password_correct(entered_password):
+    return entered_password == "@126Lucas."
+

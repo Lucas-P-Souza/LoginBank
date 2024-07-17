@@ -1,2 +1,15 @@
-#ignore only this files
-output.txt
+#ignore all files in this directory
+*
+
+#except this files
+!.gitignore
+!README.md
+!LICENSE.md
+!app.py
+!data_base.py
+!login_bank.py
+!main_window.py
+!insert_frame.py
+!delete_frame.py
+!data_viewer_frame.py
+!find_password_frame.py
