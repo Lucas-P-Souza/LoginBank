@@ -58,8 +58,8 @@
 
 #### Decryption Methods
         Similarly, in the `find_password_frame.py` file, users have the option to decrypt passwords 
-        using either Caesar cipher or Vigenère cipher. Just like at the cryptography, here if he chooses 
-        one, the other method must be commented as in the following examples.
+        using either Caesar cipher or Vigenère cipher. Just like at the cryptography, here if he 
+        chooses one, the other method must be commented as in the following examples.
         
         - Caesar Cipher:
 ~~~python
