@@ -140,13 +140,13 @@
         senhas usando a cifra de César ou a cifra de Vigenère.
         
         - Cifra de César:
-```python
-# decrypted_password = lb.decripter_cezar(encrypted_password)
+```         python
+#           decrypted_password = lb.decripter_cezar(encrypted_password)
 ```
         
         - Cifra de Vigenère:
-```python
-# decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
+```         python
+#           decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
 ```
 
 #### Detalhes do Algoritmo de Criptografia
