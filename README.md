@@ -44,28 +44,28 @@
         and Vigenère cipher, for encrypting passwords.
         
         - Caesar Cipher:
-          ```python
-          # encrypted_password = lb.encrepter_cezar(password, login, site)
-          ```
+```python
+# encrypted_password = lb.encrepter_cezar(password, login, site)
+```
         
         - Vigenère Cipher:
-          ```python
-          # encrypted_password = lb.encrypted_vinegere(password, login, site)
-          ```
+```python
+# encrypted_password = lb.encrypted_vinegere(password, login, site)
+```
 
 #### Decryption Methods
         Similarly, in the `find_password_frame.py` file, users have the option to decrypt passwords 
         using either Caesar cipher or Vigenère cipher.
         
         - Caesar Cipher:
-          ```python
-          # decrypted_password = lb.decripter_cezar(encrypted_password)
-          ```
+```python
+# decrypted_password = lb.decripter_cezar(encrypted_password)
+```
         
         - Vigenère Cipher:
-          ```python
-          # decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
-          ```
+```python
+# decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
+```
 
 #### Encryption Algorithm Details
         The Vigenère cipher in the `login_bank.py` file uses a 94 x 94 matrix and a vector containing 
@@ -126,28 +126,28 @@
         cifra de César e cifra de Vigenère, para criptografar senhas.
         
         - Cifra de César:
-          ```python
-          # encrypted_password = lb.encrepter_cezar(password, login, site)
-          ```
+```python
+# encrypted_password = lb.encrepter_cezar(password, login, site)
+```
         
         - Cifra de Vigenère:
-          ```python
-          # encrypted_password = lb.encrypted_vinegere(password, login, site)
-          ```
+```python
+# encrypted_password = lb.encrypted_vinegere(password, login, site)
+```
 
 #### Métodos de Descriptografia
         Da mesma forma, no arquivo `find_password_frame.py`, os usuários têm a opção de descriptografar 
         senhas usando a cifra de César ou a cifra de Vigenère.
         
         - Cifra de César:
-          ```python
-          # decrypted_password = lb.decripter_cezar(encrypted_password)
-          ```
+```python
+# decrypted_password = lb.decripter_cezar(encrypted_password)
+```
         
         - Cifra de Vigenère:
-          ```python
-          # decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
-          ```
+```python
+# decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
+```
 
 #### Detalhes do Algoritmo de Criptografia
         A cifra de Vigenère no arquivo `login_bank.py` utiliza uma matriz 94 x 94 e um vetor contendo 
