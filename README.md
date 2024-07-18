@@ -146,7 +146,7 @@
         
         - Cifra de Vigenère:
 ~~~python
-decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
+        decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
 ~~~
 
 #### Detalhes do Algoritmo de Criptografia
