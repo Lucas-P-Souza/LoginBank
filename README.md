@@ -146,7 +146,8 @@
 
 #### Métodos de Descriptografia
         Da mesma forma, no arquivo `find_password_frame.py`, os usuários têm a opção de descriptografar 
-        senhas usando a cifra de César ou a cifra de Vigenère.
+        senhas usando a cifra de César ou a cifra de Vigenère. Assim como na criptografia, aqui caso ele 
+        escolha um, o outro método deve estar comentado como nos exemplos a seguir.
         
         - Cifra de César:
 ~~~python
