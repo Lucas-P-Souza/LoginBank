@@ -145,9 +145,9 @@
 ```
         
         - Cifra de Vigenère:
-```         python
-#           decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
-```
+~~~python
+decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
+~~~
 
 #### Detalhes do Algoritmo de Criptografia
         A cifra de Vigenère no arquivo `login_bank.py` utiliza uma matriz 94 x 94 e um vetor contendo 
