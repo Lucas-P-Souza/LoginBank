@@ -41,7 +41,8 @@
 
 #### Encryption Methods
         In the `insert_frame.py` file, users can choose between two encryption methods: Caesar cipher 
-        and Vigenère cipher, for encrypting passwords.
+        and Vigenère cipher, for encrypting passwords. If he chooses one, the other method must be 
+        commented as in the following examples.
         
         - Caesar Cipher:
 ~~~python
@@ -57,7 +58,8 @@
 
 #### Decryption Methods
         Similarly, in the `find_password_frame.py` file, users have the option to decrypt passwords 
-        using either Caesar cipher or Vigenère cipher.
+        using either Caesar cipher or Vigenère cipher. Just like at the cryptography, here if he chooses 
+        one, the other method must be commented as in the following examples.
         
         - Caesar Cipher:
 ~~~python
@@ -127,7 +129,8 @@
 
 #### Métodos de Criptografia
         No arquivo `insert_frame.py`, os usuários podem escolher entre dois métodos de criptografia: 
-        cifra de César e cifra de Vigenère, para criptografar senhas.
+        cifra de César e cifra de Vigenère, para criptografar senhas. Caso ele escolha um, o outro 
+        método deve estar comentado como nos exemplos a seguir.
         
         - Cifra de César:
 ~~~python
