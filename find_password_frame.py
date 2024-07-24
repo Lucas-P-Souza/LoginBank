@@ -11,7 +11,7 @@ class FindPassword(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.title("Find Password")
-        self.geometry("800x500")
+        self.geometry("800x800")
         self.parent = parent
         
         self.db_file = os.path.join(os.path.dirname(__file__), "database.db")
@@ -117,8 +117,8 @@ class FindPassword(tk.Toplevel):
             # Obtém o ID do item selecionado na Treeview de logins
             selected_item = self.treeview.selection()[0]
             login_id = self.treeview.item(selected_item, "values")[0]
-            login_user = self.treeview.item(selected_item, "values")[1]
-            encrypted_password = self.treeview.item(selected_item, "values")[2]
+            login_user = self.treeview.item(selected_item, "values")[2]
+            encrypted_password = self.treeview.item(selected_item, "values")[3]
             
             # Obtém a senha digitada pelo usuário
             entered_password = self.entry_password.get()
