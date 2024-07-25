@@ -224,4 +224,3 @@ def decrypted_vinegere(password_vinegere, key):
 #this password is used to decrypt the encrypted password by the application
 def is_password_correct(entered_password):
     return entered_password == "SENHA"
-

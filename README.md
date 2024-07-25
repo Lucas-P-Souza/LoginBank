@@ -1,7 +1,7 @@
 # README
 **Author:** Lucas de Paula Souza  
 **Date:** 2024-07-17  
-**Version:** 2.5
+**Version:** 3.0
 
 ## Description 
         This program is a simple password manager with basic encryption capabilities. It allows users 
@@ -87,7 +87,7 @@
 # README -> pt - Br
 **Autor:** Lucas de Paula Souza  
 **Data:** 17-07-2024  
-**Versão:** 2.5
+**Versão:** 3.0
 
 ## Descrição 
         Este programa é um banco de senhas simples com um nível básico de criptografia. Ele permite 
