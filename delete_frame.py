@@ -43,7 +43,23 @@ class DeleteCredential(tk.Toplevel):
         self.button_back = ttk.Button(self, text="Back", command=self.destroy)
         self.button_back.pack(pady=10)
         
+        self.load_all_credentials()
+        
+    def load_all_credentials(self):
+        """Carrega todos os logins do banco de dados na Treeview."""
+        for item in self.login_treeview.get_children():
+            self.login_treeview.delete(item)
+        
+        results = db.find_all_credentials()
+        
+        if results:
+            for result in results:
+                self.login_treeview.insert("", tk.END, values=result)
+        else:
+            print("Nenhum login encontrado.")
+    
     def search_logins(self):
+        """Pesquisa logins com base no site inserido."""
         for item in self.login_treeview.get_children():
             self.login_treeview.delete(item)
         
@@ -57,6 +73,7 @@ class DeleteCredential(tk.Toplevel):
             print(f"Logins para o site '{site}' não encontrados.")
     
     def delete_credential(self):
+        """Deleta o login selecionado após verificar a senha fornecida."""
         try:
             selected_item = self.login_treeview.selection()[0]
             login_id = self.login_treeview.item(selected_item, "values")[0]
@@ -69,7 +86,7 @@ class DeleteCredential(tk.Toplevel):
             if decrypted_password:
                 db.delete_credential(login_id)
                 self.label_status.config(text="Login deletado com sucesso.")
-                self.search_logins()
+                self.load_all_credentials()  # Atualiza a lista de logins
             else:
                 self.label_status.config(text="Senha incorreta. Não foi possível deletar o login.")
             

@@ -70,9 +70,13 @@ class FindPassword(tk.Toplevel):
         self.entry_password = ttk.Entry(self, show="*")  # Campo de senha
         self.entry_password.pack()
         
-        #create a button that allows the user to decrypt the password
-        self.button_decrypt = ttk.Button(self, text="Decrypt password", command=self.decrypt_password)
-        self.button_decrypt.pack(pady=10)
+        #create a button that allows the user to decrypt the password with the ceazer cipher
+        self.button_decrypt = ttk.Button(self, text="Decrypt password with ceazer cipher", command=self.decrypt_password_ceaser)
+        self.button_decrypt.pack(pady=5)
+        
+        #create a button that allows the user to decrypt the password with the vigenere cipher
+        self.button_decrypt = ttk.Button(self, text="Decrypt password with vigenere cipher", command=self.decrypt_password_vigenere)
+        self.button_decrypt.pack(pady=5)
         
         #create the place where the decrypted password will be displayed
         self.label_decrypted_password = ttk.Label(self, text="")
@@ -130,7 +134,7 @@ class FindPassword(tk.Toplevel):
     
     #the decrypt_password method is responsible for decrypting the password of the selected login
     #the password is decrypted using the entered password by the user and the encryption method used to encrypt the password
-    def decrypt_password(self):
+    def decrypt_password_ceaser(self):
         try:
             #capturing the selected item from the treeview and the login id, user and encrypted password
             selected_item = self.treeview.selection()[0]
@@ -144,13 +148,35 @@ class FindPassword(tk.Toplevel):
             #here we check if the password entered by the user is correct
             if lb.is_password_correct(entered_password):
                 
-                #here you can choose which encryption method you want to use
-                #you can choose between cezar cipher and vinegere cipher to decrypt the password
-                #to use the cezar cipher, uncomment the line 93 and comment the line 95
-                #to use the vinegere cipher, uncomment the line 95 and comment the line 93
-                
                 #here we decrypt the password using the cezar cipher
-                #decrypted_password = lb.decripter_cezar(encrypted_password)
+                decrypted_password = lb.decripter_cezar(encrypted_password)
+                
+            #if the password entered by the user is incorrect, display a message to the user
+            else:
+                decrypted_password = "Senha incorreta"
+            
+            #display the decrypted password to the user
+            self.label_decrypted_password.config(text=f"Senha descriptografada: {decrypted_password}")
+            
+            #clear the password entered by the user
+            self.entry_password.delete(0, tk.END)
+        except IndexError:
+            print("Por favor, selecione um login.")
+
+    def decrypt_password_vigenere(self):
+        try:
+            #capturing the selected item from the treeview and the login id, user and encrypted password
+            selected_item = self.treeview.selection()[0]
+            login_id = self.treeview.item(selected_item, "values")[0]
+            login_user = self.treeview.item(selected_item, "values")[2]
+            encrypted_password = self.treeview.item(selected_item, "values")[3]
+            
+            #this is the password entered by the user to decrypt the password
+            entered_password = self.entry_password.get()
+            
+            #here we check if the password entered by the user is correct
+            if lb.is_password_correct(entered_password):
+                
                 #here we decrypt the password using the vinegere cipher
                 decrypted_password = lb.decrypted_vinegere(encrypted_password, login_user)
                 

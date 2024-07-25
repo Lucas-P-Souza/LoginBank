@@ -53,6 +53,15 @@ def find_credential(site):
     conn.close()
     return result
 
+def find_all_credentials():
+    """Retorna todas as credenciais armazenadas no banco de dados."""
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, username, password FROM users")
+    result = cursor.fetchall()
+    conn.close()
+    return result
+
 def get_encrypted_password(login_id):
     conn = create_connection()
     cursor = conn.cursor()

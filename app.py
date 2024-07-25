@@ -21,7 +21,8 @@ def run_pyinstaller():
         sys.exit(1)
 
 def main():
-    run_pyinstaller()
+    
+    ##run_pyinstaller()
 
     # Resto do seu código principal aqui
     from main_window import MainWindow
