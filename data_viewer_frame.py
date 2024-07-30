@@ -1,6 +1,7 @@
-import tkinter as tk
+from ttkbootstrap import Style
 from tkinter import ttk
 import data_base as db
+import tkinter as tk
 
 class DatabaseViewerApp(tk.Tk):
     def __init__(self, db_file):

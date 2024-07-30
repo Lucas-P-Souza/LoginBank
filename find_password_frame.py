@@ -1,5 +1,6 @@
 from data_viewer_frame import DatabaseViewerApp
-from insert_frame import InsertFrame  
+from insert_frame import InsertFrame
+from ttkbootstrap import Style
 from tkinter import ttk
 import login_bank as lb
 import data_base as db

@@ -2,6 +2,7 @@ from data_viewer_frame import DatabaseViewerApp
 from find_password_frame import FindPassword
 from delete_frame import DeleteCredential
 from insert_frame import InsertFrame
+from ttkbootstrap import Style
 import tkinter as tk
 import os
 

@@ -1,7 +1,8 @@
-import tkinter as tk
+from ttkbootstrap import Style
 from tkinter import ttk
 import login_bank as lb  # Supondo que `login_bank.py` contém a função de descriptografar senha
 import data_base as db
+import tkinter as tk
 
 class DeleteCredential(tk.Toplevel):
     def __init__(self, parent):
