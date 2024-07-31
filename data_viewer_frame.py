@@ -11,21 +11,21 @@ class DatabaseViewerApp(tk.Tk):
 
         self.db_file = db_file
 
-        # Cria uma conexão com o banco de dados
+        #create a connection with the database
         self.connection = db.create_connection()
         
-        # Cria widgets para exibição dos dados
+        #create the widgets
         self.create_widgets()
 
-        # Carrega e exibe dados iniciais
+        #load the data from the database
         self.load_data()
 
     def create_widgets(self):
-        # Frame para exibir os dados
+        #create a frame to display the data
         self.data_frame = ttk.Frame(self)
         self.data_frame.pack(padx=20, pady=20, fill=tk.BOTH, expand=True)
 
-        # Cria uma Treeview para exibir os dados
+        #create a treeview to display the data
         self.treeview = ttk.Treeview(self.data_frame, columns=("ID", "Site/App", "User", "Senha Criptografada"), show="headings")
         self.treeview.heading("ID", text="ID")
         self.treeview.heading("Site/App", text="Site/App")
@@ -33,26 +33,27 @@ class DatabaseViewerApp(tk.Tk):
         self.treeview.heading("Senha Criptografada", text="Senha Criptografada")
         self.treeview.pack(fill=tk.BOTH, expand=True)
 
-        # Botão para atualizar os dados
+        #botton to refresh the data
         self.refresh_button = ttk.Button(self, text="Refresh", command=self.load_data)
         self.refresh_button.pack(pady=10)
         
+        #create a frame to search for data
         self.search_frame = tk.Frame(self)
         self.search_frame.pack(pady=10)
 
     def load_data(self):
-        # Limpa os dados existentes na Treeview
+        #clear the treeview
         for item in self.treeview.get_children():
             self.treeview.delete(item)
 
-        # Consulta SQL para selecionar todos os registros da tabela
+        #query to select all data from the users table
         query = "SELECT id, site_app, username, password FROM users"
         try:
             cursor = self.connection.cursor()
             cursor.execute(query)
             rows = cursor.fetchall()
             
-            # Insere os dados na Treeview
+            #insert the data into the treeview
             for row in rows:
                 self.treeview.insert("", tk.END, values=row)
 
@@ -60,6 +61,6 @@ class DatabaseViewerApp(tk.Tk):
             print(f"Erro ao acessar o banco de dados: {e}")
     
     def __del__(self):
-        # Fecha a conexão com o banco de dados ao destruir a janela
+        #close the connection when the object is deleted
         if self.connection:
             self.connection.close()

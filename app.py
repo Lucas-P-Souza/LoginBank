@@ -3,19 +3,17 @@ import subprocess
 import sys
 import os
 
+#this function runs the pyinstaller to create the executable file
 def run_pyinstaller():
     try:
-        # Obtém o diretório atual do script
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        # Monta o caminho completo para o script
         script_path = os.path.join(script_dir, "app.py")
-        # Define o diretório de saída para a pasta atual
         dist_path = os.path.join(script_dir, "dist")
-        
         os.makedirs(dist_path, exist_ok=True)
         
-        # Chama o pyinstaller com o caminho correto
+        #here we run the pyinstaller to create the executable file
         subprocess.check_call(["pyinstaller", "--onefile", "--windowed", "--distpath", dist_path, script_path])
+        
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar pyinstaller: {e}")
         sys.exit(1)
@@ -23,8 +21,7 @@ def run_pyinstaller():
 def main():
     
     ##run_pyinstaller()
-
-    # Resto do seu código principal aqui
+    
     from main_window import MainWindow
     import tkinter as tk
 
@@ -32,7 +29,7 @@ def main():
     db.create_table()
     
     root = tk.Tk()
-    root.withdraw()  # Esconder a janela principal do Tkinter
+    root.withdraw()
 
     app = MainWindow()
     app.mainloop()
